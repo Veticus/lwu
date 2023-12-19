@@ -90,8 +90,8 @@ Multiple “letter/position” combinations (like e4) can be added.
 | `-h`<br/>`-—help`<br/>`-?`<br/>`-—?` | print help                                                                                                                                |
 | `—j`<br/>`--json-output`             | gives output as json                                                                                                                      |
 | `—a`<br/>`--fastapi`                 | loads the fastapi module, attempting to expose the functionalities as a REST api on port 8000.                                            |
-| `--port n`                           | when using “—api” overrides the port to use for fastapi                                                                                   |
-| `--bindaddr nnn.nnn.nnn.nnn`         | when using “—api” sets the ip address to let fastapi bind to (will usually work automatically)                                            |
+| `--port n`                           | when using “—a” overrides the port to use for fastapi                                                                                     |
+| `--bind-address nnn.nnn.nnn.nnn`     | when using “—a” sets the ip address to let fastapi bind to (will usually work automatically)                                              |
 | `--config PATH`                      | to define the path to a non-default config file                                                                                           |
 
 # Synopsis
