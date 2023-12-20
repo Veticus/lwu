@@ -58,7 +58,7 @@ Multiple “letter/position” combinations (like e4) can be added.
 (removes word from wordlist)
 
 `:nogood arsenic`
-(as above, and adds word to “nogood” list, preventing it from being re-added by merging new dicts in)
+(as above, and adds word to “nogood” list, preventing it from being re-added by merging new dicts in. Also removes word from wordlist.)
 
 `:good arsenic`
 (removes the word arsenic from the nogood list)
