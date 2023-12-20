@@ -35,11 +35,13 @@ __all__ = ["handle_args"]
 def handle_args():
 	"""
 	Handle command line arguments.
-	Doesn't take any arguments or return anything.
+	Doesn't take any arguments but returns the parsed args as a dict.
 
 	Should be called as early as possible when the program is called via CLI.
 	Argument values will be available as 'args.ARGNAME'.
 	For example: 'args.input' holds the input syntax, as given as positional arguments.
+
+	:return The parsed arguments
 	"""
 	# TODO: Create description text
 	parser = argparse.ArgumentParser(description="")
@@ -137,3 +139,5 @@ def handle_args():
 		ic(args.port)
 		ic(args.bind_address)
 		ic("--- END OF ARG HANDLING DEV OUTPUT ---")
+
+	return args
