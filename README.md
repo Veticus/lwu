@@ -72,6 +72,9 @@ Multiple “letter/position” combinations (like e4) can be added.
 `:lang`
 (lists all languages that have a wordlist and nogood list) (ask user to enter name of language to use)
 
+`:help`
+(shows a help text)
+
 
 # CLI args and flags
 | Arg/flag                             | Description                                                                                                                               |

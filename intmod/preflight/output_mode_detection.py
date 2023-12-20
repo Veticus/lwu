@@ -15,6 +15,12 @@ def determine_output_mode(args):
 
 	If the programs output is sent to a pipe, it will return "PIPE", so the main knows to print very simple output.
 
+	If the program is launched with -i/--interactive-mode, but not -j/--json and/or -a/--fast-api, and NO input is given, it's assumed
+	that some help text can be shown in the interactive mode. This function will therefore return "INTERACTIVE_W_HELP".
+
+	If the program is launched with -i/--interactive-mode, but not -j/--json and/or -a/--fast-api, and input is given, it's assumed
+	that the user has used the interactive mode before. In such a case no help text is needed. This function will therefore return "INTERACTIVE".
+
 	If none of those cases match, it will return "STDOUT", assuming that the OS is making it hard to detect if the output is being piped.
 	In that case it is preferred to preserve the "normal" CLI functionality.
 
@@ -35,6 +41,22 @@ def determine_output_mode(args):
 		if args.d:
 			ic("Not recommending PIPE, but still moving on.")
 
+	if len(args.input) == 0 and not args.json and not args.fast_api and args.interactive_mode:
+		if args.d:
+			ic("Recommending INTERACTIVE_W_HELP as output mode.")
+		return "INTERACTIVE_W_HELP"
+	else:
+		if args.d:
+			ic("Not recommending INTERACTIVE_W_HELP, but still moving on.")
+
+	if len(args.input) != 0 and not args.json and not args.fast_api and args.interactive_mode:
+		if args.d:
+			ic("Recommending INTERACTIVE as output mode.")
+		return "INTERACTIVE"
+	else:
+		if args.d:
+			ic("Not recommending INTERACTIVE, but still moving on.")
+
 	if args.json:
 		if args.d:
 			ic("Recommending JSON output mode, because --json or -j are used.")
@@ -51,5 +73,6 @@ def determine_output_mode(args):
 		if args.d:
 			ic("Not recommending FASTAPI output mode, but still moving on.")
 
-	ic("--- END OF determine_output_mode() ---")
+	if args.d:
+		ic("--- END OF determine_output_mode() ---")
 	return "STDOUT"

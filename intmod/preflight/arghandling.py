@@ -120,6 +120,10 @@ def handle_args():
 	parser.add_argument("--config-file",
 						help="")
 
+	parser.add_argument("--interactive-mode", "-i",
+						action="store_true",
+						help="")
+
 	args = parser.parse_args()
 
 	# Some icecream to check if it all works as expected, if "developer mode" is used.
@@ -138,6 +142,7 @@ def handle_args():
 		ic(args.fast_api)
 		ic(args.port)
 		ic(args.bind_address)
+		ic(args.interactive_mode)
 		ic("--- END OF ARG HANDLING DEV OUTPUT ---")
 
 	return args
