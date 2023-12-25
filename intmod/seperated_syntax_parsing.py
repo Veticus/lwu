@@ -18,12 +18,15 @@ input = ["lolcake", "4", "l3", "e7"]
 #           Split into letter and number
 #           Look for match with letter at number position
 
+# Letters:
+# 	Split string into list of single-char strings
 
-spotletters = [s for s in input if re.compile(r'[a-zA-Z]\d{1,2}').search(s)]
+
+posletters = [s for s in input if re.compile(r'[a-zA-Z]\d{1,2}').search(s)]
 letters = [s for s in input if re.compile(r'^[a-z]{2,40}$').search(s)]
 wordlength = [s for s in input if re.compile(r'^\d{1,2}$').search(s)]
 
 # Print the matches
-print(spotletters)
+print(posletters)
 print(letters)
 print(wordlength)

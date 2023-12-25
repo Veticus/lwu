@@ -1,12 +1,8 @@
-import random
-import time
+import re
 from itertools import permutations
 
 with open('wordlist.txt', 'r') as f:
 	words = f.read().splitlines()
-
-print(f"Number of words in file: {len(words)}")
-print(f"Random word from words: {random.choice(words)}")
 
 
 def pospairtest(position, letter, wordlist):
@@ -17,7 +13,7 @@ def pospairtest(position, letter, wordlist):
 	return matchingwords
 
 
-# Look for permutations that are found in wordlist
+# look for permutations that are found in wordlist
 def find_words(letters):
 	found_words = []
 	for permuted_letters in set(permutations(letters)):
@@ -31,12 +27,32 @@ testletters = ["s", "h", "o", "v", "e", "l"]
 testposition = 4
 testletter = "v"
 
-
-start_time = time.time()
 validwords = find_words(testletters)
-print(f"Words found for the letters {testletters}: {validwords}.\n"
-	f"That took {time.time() - start_time:.5f} seconds")
 
+print(f"Words found for the letters {testletters}: {validwords}")
 
 words_matched_to_pospair = pospairtest(testposition, testletter, validwords)
 print(f"Of those words, {words_matched_to_pospair} had a '{testletter}' at position {testposition}")
+
+
+
+
+
+
+seperated_input_length_multi_pospair = ["shovel", "4", "v4", "e5"]
+seperated_input_nolength_multi_pospair = ["shovel", "v4", "e5"]
+seperated_input_length_single_pospair = ["shovel", "4", "v4", ]
+seperated_input_nolength_single_pospair = ["shovel", "e5"]
+seperated_input_length_no_pospair = ["shovel", "4"]
+seperated_input_nolength_no_pospair = ["shovel"]
+
+
+
+
+posletters = [s for s in input if re.compile(r'[a-zA-Z]\d{1,2}').search(s)]
+letters = list([s for s in input if re.compile(r'^[a-z]{2,40}$').search(s)])
+wordlength = [s for s in input if re.compile(r'^\d{1,2}$').search(s)]
+
+print(posletters)
+print(letters)
+print(wordlength)
