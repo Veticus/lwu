@@ -15,7 +15,7 @@ with open("inputlist.txt", 'r') as file:
 
 unique_letters_only = set()
 
-for idx, word in enumerate(tqdm(words, desc="Processing Words..."), start=1):
+for idx, word in enumerate(tqdm(words, desc="Processing Words...", unit=" words"), start=1):
 	if (
 			re.match("^[a-zA-Z]+$", word)
 			and len(word) >= 2
@@ -23,7 +23,7 @@ for idx, word in enumerate(tqdm(words, desc="Processing Words..."), start=1):
 			and word not in unique_letters_only):
 		unique_letters_only.add(word.lower())
 
-with tqdm(total=len(unique_letters_only), desc="Writing wordlist file...") as pbar:
+with tqdm(total=len(unique_letters_only), desc="Writing wordlist file...", unit=" words") as pbar:
 	with open("wordlist.txt", 'w') as file:
 		for word in unique_letters_only:
 			file.write(word + '\n')
