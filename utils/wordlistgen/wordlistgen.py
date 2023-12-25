@@ -1,9 +1,11 @@
 import re
 
+from tqdm import tqdm
+
 # Ignore allcaps words
 # Ignore words with punctuation or numbers
 # Ignore single letter words
-# Give status ever 1000 words
+# Show some sort of progress indication
 # No duplicates in letters_file allowed
 # All words must be lowercase
 
@@ -13,7 +15,7 @@ with open("inputlist.txt", 'r') as file:
 
 unique_letters_only = set()
 
-for idx, word in enumerate(words, start=1):
+for idx, word in enumerate(tqdm(words, desc="Processing Words..."), start=1):
 	if (
 			re.match("^[a-zA-Z]+$", word)
 			and len(word) >= 2
@@ -21,8 +23,8 @@ for idx, word in enumerate(words, start=1):
 			and word not in unique_letters_only):
 		unique_letters_only.add(word.lower())
 
-	if idx % 1000 == 0:
-		print(f"Processed {idx:,} words...")
-
-with open("wordlist.txt", 'w') as file:
-	file.write('\n'.join(unique_letters_only))
+with tqdm(total=len(unique_letters_only), desc="Writing wordlist file...") as pbar:
+	with open("wordlist.txt", 'w') as file:
+		for word in unique_letters_only:
+			file.write(word + '\n')
+			pbar.update(1)
