@@ -21,7 +21,7 @@ Additionally a config file will be placed in the directory, and used to initiali
 - [ ] API mode
 - [ ] Package mode
 - [ ] Maybe pickle lists?
-- [ ] Or maybe have them as pandas? Maybe sqlite3? Compare performance and memory usage.
+- [ ] Or maybe have them as a Pandas data frame? Maybe throw it all in a sqlite3 db? Compare performance and memory usage.
 
 
 # Query syntax
