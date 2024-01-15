@@ -26,7 +26,7 @@ def parse_input_string(input_string):
 	# TODO: Implement "trash" parse: If something that doesn't match 'length', 'positions' or 'letters' found: return "syntax error" flag for UI to deal with
 	# TODO: Implement dev mode
 
-	# Some defaults to return quickly, in case the input syntax is a command.
+	# Some defaults, to make the rest of the code a little easier on the eyes
 	letters = []
 	position = []
 	length = []

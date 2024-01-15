@@ -17,12 +17,11 @@ For lwu it's done like this:
 changelog:
 2023-12-20:
 	- Moved the arg handling stuf in here.
-	- Added the hidden "-d" flag to act as a "developer mode".
+	- Added the hidden "-d" flag to act as a "debug mode".
 	- Added dunder meta-variables and module level docstring.
 """
 
 import argparse
-
 from icecream import ic
 
 __version__ = "0.0.1.24"

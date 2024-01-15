@@ -1,7 +1,7 @@
 import re
 from itertools import permutations
 
-with open('wordlist.txt', 'r') as f:
+with open('../../lists/wordlist.txt', 'r') as f:
 	words = f.read().splitlines()
 
 
@@ -49,10 +49,10 @@ seperated_input_nolength_no_pospair = ["shovel"]
 
 
 
-posletters = [s for s in input if re.compile(r'[a-zA-Z]\d{1,2}').search(s)]
-letters = list([s for s in input if re.compile(r'^[a-z]{2,40}$').search(s)])
-wordlength = [s for s in input if re.compile(r'^\d{1,2}$').search(s)]
-
-print(posletters)
-print(letters)
-print(wordlength)
+# posletters = [s for s in input if re.compile(r'[a-zA-Z]\d{1,2}').search(s)]
+# letters = list([s for s in input if re.compile(r'^[a-z]{2,40}$').search(s)])
+# wordlength = [s for s in input if re.compile(r'^\d{1,2}$').search(s)]
+#
+# print(posletters)
+# print(letters)
+# print(wordlength)

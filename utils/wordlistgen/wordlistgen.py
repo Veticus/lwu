@@ -24,7 +24,7 @@ for idx, word in enumerate(tqdm(words, desc="Processing Words...", unit=" words"
 		unique_letters_only.add(word.lower())
 
 with tqdm(total=len(unique_letters_only), desc="Writing wordlist file...", unit=" words") as pbar:
-	with open("wordlist.txt", 'w') as file:
+	with open("../../lists/wordlist.txt", 'w') as file:
 		for word in unique_letters_only:
 			file.write(word + '\n')
 			pbar.update(1)
